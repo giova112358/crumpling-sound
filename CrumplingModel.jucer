@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="o0IxvP" name="CrumplingModel" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              headerPath="D:\Sound and Audio Engineering\TESI\crumpling\Source\SDT">
+  <MAINGROUP id="V929gg" name="CrumplingModel">
+    <GROUP id="{24FCC4DF-3DDF-9136-B329-C94C59554297}" name="Source">
+      <GROUP id="{E4251435-C780-CFA8-ED8B-75F45DAC1C96}" name="SDT">
+        <FILE id="rQkYph" name="SDTAnalysis.c" compile="1" resource="0" file="Source/SDT/SDTAnalysis.c"/>
+        <FILE id="uCa6k4" name="SDTAnalysis.h" compile="0" resource="0" file="Source/SDT/SDTAnalysis.h"/>
+        <FILE id="gUDomz" name="SDTCommon.cpp" compile="1" resource="0" file="Source/SDT/SDTCommon.cpp"/>
+        <FILE id="zP4jLP" name="SDTCommon.h" compile="0" resource="0" file="Source/SDT/SDTCommon.h"/>
+        <FILE id="ofHxHg" name="SDTComplex.c" compile="1" resource="0" file="Source/SDT/SDTComplex.c"/>
+        <FILE id="nA2cRf" name="SDTComplex.h" compile="0" resource="0" file="Source/SDT/SDTComplex.h"/>
+        <FILE id="PCcqo3" name="SDTControl.c" compile="1" resource="0" file="Source/SDT/SDTControl.c"/>
+        <FILE id="KWD3uA" name="SDTControl.h" compile="0" resource="0" file="Source/SDT/SDTControl.h"/>
+        <FILE id="tzhzLh" name="SDTDCMotor.c" compile="1" resource="0" file="Source/SDT/SDTDCMotor.c"/>
+        <FILE id="UHpX5g" name="SDTDCMotor.h" compile="0" resource="0" file="Source/SDT/SDTDCMotor.h"/>
+        <FILE id="ncVgzn" name="SDTDemix.c" compile="1" resource="0" file="Source/SDT/SDTDemix.c"/>
+        <FILE id="rEKx8p" name="SDTDemix.h" compile="0" resource="0" file="Source/SDT/SDTDemix.h"/>
+        <FILE id="CJu7Rm" name="SDTEffects.c" compile="1" resource="0" file="Source/SDT/SDTEffects.c"/>
+        <FILE id="PagdqA" name="SDTEffects.h" compile="0" resource="0" file="Source/SDT/SDTEffects.h"/>
+        <FILE id="k5NCUj" name="SDTFFT.cpp" compile="1" resource="0" file="Source/SDT/SDTFFT.cpp"/>
+        <FILE id="cqGWHz" name="SDTFFT.h" compile="0" resource="0" file="Source/SDT/SDTFFT.h"/>
+        <FILE id="Dvldv1" name="SDTFilters.c" compile="1" resource="0" file="Source/SDT/SDTFilters.c"/>
+        <FILE id="cnRQ2A" name="SDTFilters.h" compile="0" resource="0" file="Source/SDT/SDTFilters.h"/>
+        <FILE id="fQvvdu" name="SDTGases.c" compile="1" resource="0" file="Source/SDT/SDTGases.c"/>
+        <FILE id="sS2I2Y" name="SDTGases.h" compile="0" resource="0" file="Source/SDT/SDTGases.h"/>
+        <FILE id="eAHMKw" name="SDTInteractors.c" compile="1" resource="0"
+              file="Source/SDT/SDTInteractors.c"/>
+        <FILE id="oaywjm" name="SDTInteractors.h" compile="0" resource="0"
+              file="Source/SDT/SDTInteractors.h"/>
+        <FILE id="lS8VVL" name="SDTLiquids.c" compile="1" resource="0" file="Source/SDT/SDTLiquids.c"/>
+        <FILE id="XM8IIo" name="SDTLiquids.h" compile="0" resource="0" file="Source/SDT/SDTLiquids.h"/>
+        <FILE id="wE7XAb" name="SDTModalTracker.c" compile="1" resource="0"
+              file="Source/SDT/SDTModalTracker.c"/>
+        <FILE id="njZu8a" name="SDTModalTracker.h" compile="0" resource="0"
+              file="Source/SDT/SDTModalTracker.h"/>
+        <FILE id="JmyokT" name="SDTMotor.c" compile="1" resource="0" file="Source/SDT/SDTMotor.c"/>
+        <FILE id="HarONW" name="SDTMotor.h" compile="0" resource="0" file="Source/SDT/SDTMotor.h"/>
+        <FILE id="RXcl72" name="SDTOscillators.c" compile="1" resource="0"
+              file="Source/SDT/SDTOscillators.c"/>
+        <FILE id="osJXvr" name="SDTOscillators.h" compile="0" resource="0"
+              file="Source/SDT/SDTOscillators.h"/>
+        <FILE id="A9qTsT" name="SDTResonators.cpp" compile="1" resource="0"
+              file="Source/SDT/SDTResonators.cpp"/>
+        <FILE id="d0gPsY" name="SDTResonators.h" compile="0" resource="0" file="Source/SDT/SDTResonators.h"/>
+        <FILE id="p1lsCo" name="SDTSolids.c" compile="1" resource="0" file="Source/SDT/SDTSolids.c"/>
+        <FILE id="mrXCfZ" name="SDTSolids.h" compile="0" resource="0" file="Source/SDT/SDTSolids.h"/>
+        <FILE id="jEChab" name="SDTStructs.c" compile="1" resource="0" file="Source/SDT/SDTStructs.c"/>
+        <FILE id="G1AW0a" name="SDTStructs.h" compile="0" resource="0" file="Source/SDT/SDTStructs.h"/>
+      </GROUP>
+      <FILE id="Doghh9" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="A4dj1v" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="WB8jlu" name="Impact.cpp" compile="1" resource="0" file="Source/Impact.cpp"/>
+      <FILE id="srrsxr" name="Impact.h" compile="0" resource="0" file="Source/Impact.h"/>
+      <FILE id="SclGLI" name="Inertial.cpp" compile="1" resource="0" file="Source/Inertial.cpp"/>
+      <FILE id="PEofEB" name="Inertial.h" compile="0" resource="0" file="Source/Inertial.h"/>
+      <FILE id="vyKeo1" name="Modal.cpp" compile="1" resource="0" file="Source/Modal.cpp"/>
+      <FILE id="K7oaI5" name="Modal.h" compile="0" resource="0" file="Source/Modal.h"/>
+      <FILE id="AQeL98" name="Crumpling.cpp" compile="1" resource="0" file="Source/Crumpling.cpp"/>
+      <FILE id="pjVy4e" name="Crumpling.h" compile="0" resource="0" file="Source/Crumpling.h"/>
+      <FILE id="tfuPks" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="zhgLIL" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="CrumplingModel"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="CrumplingModel"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
