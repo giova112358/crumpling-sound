@@ -19,6 +19,7 @@
 #include "Impact.h"
 #include "Modal.h"
 #include "Inertial.h"
+#include "Crumpling.h"
 
 class DspProcessor
 {
@@ -32,12 +33,14 @@ public:
 
     std::unique_ptr<Inertial> inertialResonator;
     std::unique_ptr<Modal> modalResonator;
+    std::unique_ptr<Crumpling> crumplingModel;
     std::unique_ptr<Impact> impactModel;
-
+   
 private:
     int nModes{ 3 };
     int nPickups{ 2 };
 
+    double ctmpOuts[2];
     double tmpOuts[2 * SDT_MAX_PICKUPS]; /*array where the velocity and displacent information
                                          of the modal resonator in the two pickup points are
                                          stored*/
