@@ -69,6 +69,7 @@ public:
     void updateVolume();
     void updateInertialParameters();
     void updateModalParameters();
+    void updateCrumplingParameters();
     void updateImpactParameters();
 
     //==============================================================================
@@ -80,18 +81,20 @@ public:
 
     //==============================================================================
     juce::AudioProcessorValueTreeState apvts;
-    void addImpactParameters(juce::AudioProcessorValueTreeState::ParameterLayout& layout);
     void addInertialParameters(juce::AudioProcessorValueTreeState::ParameterLayout& layout);
-    void addModalParameters(juce::AudioProcessorValueTreeState::ParameterLayout& layout);
+    void addModalParameters(juce::AudioProcessorValueTreeState::ParameterLayout& layout);   
+    void addCrumplingParameters(juce::AudioProcessorValueTreeState::ParameterLayout& layout);
+    void addImpactParameters(juce::AudioProcessorValueTreeState::ParameterLayout& layout);
     void addGainParameters(juce::AudioProcessorValueTreeState::ParameterLayout& layout);
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
 
 private:
     bool isActive{ false };
-    bool mustUpdateVolume{ false };
     bool mustUpdateInertialParameters{ false };
     bool mustUpdateModalParameters{ false };
+    bool mustUpdateCrumplingParameters{ false };
     bool mustUpdateImpactParameters{ false };
+    bool mustUpdateVolume{ false };
     bool mustStrike{ false };
 
     static constexpr int numChannels = 2;

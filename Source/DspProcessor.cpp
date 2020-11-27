@@ -30,8 +30,8 @@ void DspProcessor::setSampleRate(double sampleRate)
 double DspProcessor::process()
 {
     SDTCrumpling_dsp(crumplingModel.get()->getSDTObj(), ctmpOuts);
-
-    SDTInteractor_dsp(impactModel.get()->getSDTObj(), ctmpOuts[0], ctmpOuts[1], 0, 0, 0, ctmpOuts[1], tmpOuts);
+    //DBG(ctmpOuts[1]);
+    SDTInteractor_dsp(impactModel.get()->getSDTObj(), 0, -1*ctmpOuts[0], ctmpOuts[1], 0, 0, ctmpOuts[1], tmpOuts);
     return tmpOuts[1];
 }
 

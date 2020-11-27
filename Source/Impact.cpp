@@ -20,7 +20,7 @@ Impact::~Impact()
 {
 }
 
-void Impact::setImpactParameters(float stiffness, double dissipation,
+void Impact::setImpactParameters(double stiffness, double dissipation,
     double shape, long contact0, long contact1)
 {
     SDTImpact_setStiffness(impact, stiffness);

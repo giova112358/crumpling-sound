@@ -18,9 +18,7 @@ public:
     Crumpling();
     ~Crumpling();
 
-    void setCrushingEnergy(double crushingEnergy);
-    void setGranularity(double granularity);
-    void setFragmentation(double fragmentation);
+    void setCrumplingParameters(double crushingEnergy, double granularity, double fragmentation);
 
     SDTCrumpling* getSDTObj();
 

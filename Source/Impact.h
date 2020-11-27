@@ -32,7 +32,7 @@ public:
      Set the parameter of the impact interaction.
      =============================================================================
     */
-    void setImpactParameters(float stiffness, double dissipation, double shape,
+    void setImpactParameters(double stiffness, double dissipation, double shape,
         long contact0, long contact1);
 
     SDTInteractor* getSDTObj();
