@@ -5,7 +5,7 @@
     Created: 27 Nov 2020 12:00:25pm
     Author:  Giova
 
-    Physical model of a set of parallel mass–spring–damper mechanical oscillators,
+    Physical model of a set of parallel massâ€“springâ€“damper mechanical oscillators,
     with each oscillator representing a resonant frequency of the object.
     Set the parameters of the modal resonator.
   ==============================================================================

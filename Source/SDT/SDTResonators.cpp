@@ -281,6 +281,7 @@ void SDTResonator_applyForce(SDTResonator *x, unsigned int pickup, double f) {
       x->f[mode] += fs[mode];
     }
   }
+  delete[] fs;
 }
 
 double SDTResonator_computeEnergy(SDTResonator *x, unsigned int pickup, double f) {
@@ -298,6 +299,7 @@ double SDTResonator_computeEnergy(SDTResonator *x, unsigned int pickup, double f
       out += modalEnergy(x, mode, p, v) * x->gains[pickup][mode];
     }
   }
+  delete[] fs;
   return out;
 }
 

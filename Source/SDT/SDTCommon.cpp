@@ -145,6 +145,7 @@ void SDT_haar(double *sig, long n) {
     sig[i] = (tmp[k] + tmp[l]) / SDT_SQRT2;
     sig[j] = (tmp[k] - tmp[l]) / SDT_SQRT2;
   }
+  delete[] tmp;
 }
 
 void SDT_ihaar(double *sig, long n) {
@@ -161,6 +162,7 @@ void SDT_ihaar(double *sig, long n) {
     sig[i] = (tmp[k] + tmp[l]) / SDT_SQRT2;
     sig[j] = (tmp[k] - tmp[l]) / SDT_SQRT2;
   }
+  delete[] tmp;
 }
 
 int SDT_isHole(double *x, unsigned int index, unsigned int radius) {
@@ -271,7 +273,9 @@ double SDT_rank(double *x, int n, int k) {
     if (j < k) l = i;
     if (k < i) r = j;
   }
-  return a[k];
+  double f = a[k];
+  delete[] a;
+  return f;
 }
 
 void SDT_removeDC(double *sig, int n) {

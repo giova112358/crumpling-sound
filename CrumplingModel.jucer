@@ -61,6 +61,9 @@
       <FILE id="vyKeo1" name="Modal.cpp" compile="1" resource="0" file="Source/Modal.cpp"/>
       <FILE id="K7oaI5" name="Modal.h" compile="0" resource="0" file="Source/Modal.h"/>
       <FILE id="AQeL98" name="Crumpling.cpp" compile="1" resource="0" file="Source/Crumpling.cpp"/>
+      <FILE id="PIMNEK" name="DspProcessor.cpp" compile="1" resource="0"
+            file="Source/DspProcessor.cpp"/>
+      <FILE id="Khnk8M" name="DspProcessor.h" compile="0" resource="0" file="Source/DspProcessor.h"/>
       <FILE id="pjVy4e" name="Crumpling.h" compile="0" resource="0" file="Source/Crumpling.h"/>
       <FILE id="tfuPks" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>

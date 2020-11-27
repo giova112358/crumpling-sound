@@ -10,18 +10,14 @@
 
 #include "Impact.h"
 
-Impact::Impact()
+Impact::Impact(char* key0, char* key1)
 {
     impact = SDTImpact_new();
+    SDT_registerInteractor(impact, key0, key1);
 }
 
 Impact::~Impact()
 {
-}
-
-void Impact::registerInteraction(char* key0, char* key1)
-{
-    SDT_registerInteractor(impact, key0, key1);
 }
 
 void Impact::setImpactParameters(float stiffness, double dissipation,
@@ -32,4 +28,9 @@ void Impact::setImpactParameters(float stiffness, double dissipation,
     SDTImpact_setShape(impact, shape);
     SDTInteractor_setFirstPoint(impact, contact0);
     SDTInteractor_setSecondPoint(impact, contact1);
+}
+
+SDTInteractor* Impact::getSDTObj()
+{
+    return this->impact;
 }

@@ -43,5 +43,5 @@ void Modal::setModalParameters(double freqs[SDT_MAX_MODES],
 
 SDTResonator* Modal::getSDTObj()
 {
-    return this->getSDTObj;
+    return this->modal;
 }

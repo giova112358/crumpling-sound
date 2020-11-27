@@ -22,15 +22,8 @@
 class Impact
 {
 public:
-    Impact();
+    Impact(char* key0, char* key1);
     ~Impact();
-
-    /*
-     ============================================================================
-       Link the two resonators with the interactor through their ID
-       ============================================================================
-   */
-    void registerInteraction(char* key0, char* key1);
 
     /*
      ============================================================================
@@ -41,6 +34,8 @@ public:
     */
     void setImpactParameters(float stiffness, double dissipation, double shape,
         long contact0, long contact1);
+
+    SDTInteractor* getSDTObj();
 
 private:
     SDTInteractor* impact; /*impact inetractor object*/
