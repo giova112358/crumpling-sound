@@ -32,4 +32,6 @@ Such a model is based on the impact model, which defines the atomic events( i.e.
 
 The crumpling process consumes energy during its evolution. The process terminates when the transfer of energy does not take place any longer, i.e., when a reference energy, Etot, has been spent independently y each one of the impulses forming the event stot.
 
+<img src="Documents/eq1.png" width="50%">
+
 Each time gap tau between two subsequent events in a temporal process is described by a Poisson distribution
