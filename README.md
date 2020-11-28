@@ -32,6 +32,18 @@ Such a model is based on the impact model, which defines the atomic events( i.e.
 
 The crumpling process consumes energy during its evolution. The process terminates when the transfer of energy does not take place any longer, i.e., when a reference energy, Etot, has been spent independently y each one of the impulses forming the event stot.
 
-<img src="Documents/eq1.png" width="50%">
+<img src="Documents/eq4.png" width="50%">
+
+where s(nT) is a short discrete-time signal having unitary energy accounting for each single impulse.
 
 Each time gap tau between two subsequent events in a temporal process is described by a Poisson distribution
+
+<img src="Documents/eq2.png" width="30%">
+
+Assuming a time step equal to T, then we simply map the time gap over a value defined in the discrete-time domain kT.
+
+<img src="Documents/eq3.png" width="20%">
+
+This is one possible description of the crumpling process in terms of its energy Etot, arrival times kiT and structure  s of each impulse.
+
+We can synthetize the sound of each single impulse by assuming that the weighted superposition of only two “prototype” sounds accounts for all impulses once their pitch and loudness have been set. This prototype sound has empirically been obtained via modal synthesis, using the impact model.
