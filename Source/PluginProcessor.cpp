@@ -168,8 +168,6 @@ void CrumplingModelAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
         updateCrumplingParameters();
     if (mustUpdateImpactParameters)
         updateImpactParameters();
-    //if (mustStrike)
-    //    strike();
 
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels = getTotalNumInputChannels();
@@ -201,23 +199,39 @@ bool CrumplingModelAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* CrumplingModelAudioProcessor::createEditor()
 {
-    /*return new CrumplingModelAudioProcessorEditor (*this);*/
-    return new juce::GenericAudioProcessorEditor(this);
+    return new CrumplingModelAudioProcessorEditor (*this);
+    /*return new juce::GenericAudioProcessorEditor(this);*/
 }
 
 //==============================================================================
 void CrumplingModelAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
-    juce::ValueTree copyState = apvts.copyState();
+    /*juce::ValueTree copyState = apvts.copyState();
     std::unique_ptr<juce::XmlElement> xml = copyState.createXml();
-    copyXmlToBinary(*xml.get(), destData);
+    copyXmlToBinary(*xml.get(), destData);*/
 }
 
 void CrumplingModelAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    std::unique_ptr<juce::XmlElement> xml = getXmlFromBinary(data, sizeInBytes);
+    /*std::unique_ptr<juce::XmlElement> xml = getXmlFromBinary(data, sizeInBytes);
     juce::ValueTree copyState = juce::ValueTree::fromXml(*xml.get());
+    apvts.replaceState(copyState);*/
+}
+
+//================================================================================
+void CrumplingModelAudioProcessor::setPresetStateValueTree(std::unique_ptr<juce::XmlElement> xmlState)
+{
+    juce::ValueTree copyState = juce::ValueTree::fromXml(*xmlState.get());
     apvts.replaceState(copyState);
+}
+
+juce::XmlElement CrumplingModelAudioProcessor::getAndSavePresetStateValueTree()
+{
+    juce::ValueTree copyState = apvts.copyState();
+    std::unique_ptr<juce::XmlElement> xml = copyState.createXml();
+    juce::XmlElement xmlState = *xml.get();
+
+    return xmlState;
 }
 
 //==============================================================================
@@ -252,6 +266,7 @@ void CrumplingModelAudioProcessor::reset()
         mVolume[channel].reset(getSampleRate(), 0.050);
     }
 }
+
 //===============================================================================
 void CrumplingModelAudioProcessor::addInertialParameters(juce::AudioProcessorValueTreeState::ParameterLayout& layout)
 {
@@ -260,23 +275,14 @@ void CrumplingModelAudioProcessor::addInertialParameters(juce::AudioProcessorVal
     std::function<double(const juce::String&)> textToValueFunction =
         [](const juce::String& str) {return str.getFloatValue(); };
 
-    //auto velocity = std::make_unique<juce::AudioParameterFloat>("VEL", "Velocity",
-    //    juce::NormalisableRange<double>(0.001, 40.0), 3.741,
-    //    "m/s", juce::AudioProcessorParameter::genericParameter, 
-    //    valueToTextFunction, textToValueFunction);
 
     auto mass = std::make_unique<juce::AudioParameterFloat>("MASS", "Mass", 
         juce::NormalisableRange<float>(0.001, 0.1), 0.011184,
         "Kg", juce::AudioProcessorParameter::genericParameter, 
         valueToTextFunction, textToValueFunction);
 
-    //auto force = std::make_unique<juce::AudioParameterFloat>("FOR", "Force", 
-    //    juce::NormalisableRange<double>(0.0, 0.2), 0.0,
-    //    "N", juce::AudioProcessorParameter::genericParameter, 
-    //    valueToTextFunction, textToValueFunction);
-
     auto group = std::make_unique<juce::AudioProcessorParameterGroup>("sdt.inertial", "HAMMER CONTROLS", "|",
-        /*std::move(velocity), */std::move(mass)/*, std::move(force)*/);
+        std::move(mass));
 
     layout.add(std::move(group));
 }
@@ -405,15 +411,13 @@ void CrumplingModelAudioProcessor::addGainParameters(juce::AudioProcessorValueTr
     std::function<float(const juce::String&)> textToValueFunction =
         [](const juce::String& str) {return str.getFloatValue(); };
 
-    /*auto bang = std::make_unique<juce::AudioParameterBool>("BANG", "bang", false);*/
-
     auto volume = std::make_unique<juce::AudioParameterFloat>("VOL", "Volume",
         juce::NormalisableRange< float >(-40.0f, 10.0f), 0.0f,
         "dB", juce::AudioProcessorParameter::genericParameter,
         valueToTextFunction, textToValueFunction);
 
     auto group = std::make_unique<juce::AudioProcessorParameterGroup>("sdt.gain", "VOLUME CONTROLS", "|",
-        std::move(volume)/*, std::move(bang)*/);
+        std::move(volume));
 
     layout.add(std::move(group));
 
@@ -435,19 +439,12 @@ void CrumplingModelAudioProcessor::updateInertialParameters()
 {
     mustUpdateInertialParameters = false;
     auto m = apvts.getRawParameterValue("MASS");
-    //auto vel = apvts.getRawParameterValue("VEL");
-    /*auto f = apvts.getRawParameterValue("FOR");*/
 
     double mass = m->load();
-    //double velocity = vel->load();
-    /*double force = f->load();*/
 
     for (int channel = 0; channel < numChannels; ++channel) {
         model[channel]->inertialResonator->setInertialParameters(mass, 1.0);
-        /*model[channel]->setExtenalForce(-1 * force);*/
-        /*model[channel]->setStrike(0.0, -1 * velocity);*/
     }
-    //strike();
 }
 
 void CrumplingModelAudioProcessor::updateModalParameters()
@@ -517,25 +514,10 @@ void CrumplingModelAudioProcessor::updateVolume()
     }
 }
 //===============================================================================
-//void CrumplingModelAudioProcessor::strike()
-//{
-//    mustStrike = false;
-//    auto vel = apvts.getRawParameterValue("VEL");
-//    double velocity = vel->load();
-//
-//    for (int channel = 0; channel < numChannels; ++channel) {
-//        model[channel]->inertialResonator->setStrike(0.0, /*-9.741634*/-1*velocity);
-//    }
-//
-//}
-
 
 void CrumplingModelAudioProcessor::parameterChanged(const juce::String& parameterID, float newValue)
 { 
-    //if (parameterID == "VEL")
-    //    mustUpdateInertialParameters = true;
-    //if (parameterID == "FOR")
-    //    mustUpdateInertialParameters = true;
+
     if (parameterID == "MASS")
         mustUpdateInertialParameters = true;
     if (parameterID == "FREQ0")
@@ -570,6 +552,4 @@ void CrumplingModelAudioProcessor::parameterChanged(const juce::String& paramete
         mustUpdateImpactParameters = true;
     if (parameterID == "VOL")
         mustUpdateVolume = true;
-    //if (parameterID == "BANG")
-    //    mustStrike = true;
 }
