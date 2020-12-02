@@ -155,6 +155,7 @@ private:
         void resized() override
         {
             auto bounds = getLocalBounds();
+            bounds.removeFromTop(20);
             juce::Grid grid;
             using Track = juce::Grid::TrackInfo;
             using Fr = juce::Grid::Fr;
