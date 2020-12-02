@@ -182,7 +182,7 @@ void CrumplingModelAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
         auto* channelData = buffer.getWritePointer(channel);
 
         for (int sample = 0; sample < numSamples; ++sample) {
-            channelData[sample] = 1000 * model[channel]->process();
+            channelData[sample] = 2000 * model[channel]->process();
             channelData[sample] = juce::jlimit(-1.0f, 1.0f, channelData[sample]);
             //DBG(channelData[sample]);
         }
@@ -295,17 +295,17 @@ void CrumplingModelAudioProcessor::addModalParameters(juce::AudioProcessorValueT
         [](const juce::String& str) {return str.getFloatValue(); };
 
     auto freq0 = std::make_unique<juce::AudioParameterFloat>("FREQ0", "Frequency0",
-        juce::NormalisableRange<float>(20.0, 5000), 1155,
+        juce::NormalisableRange<float>(20.0, 10000), 1155,
         "Hz", juce::AudioProcessorParameter::genericParameter, 
         valueToTextFunction, textToValueFunction);
 
     auto freq1 = std::make_unique<juce::AudioParameterFloat>("FREQ1", "Frequency1", 
-        juce::NormalisableRange<float>(20.0, 5000), 1848,
+        juce::NormalisableRange<float>(20.0, 10000), 1848,
         "Hz", juce::AudioProcessorParameter::genericParameter, 
         valueToTextFunction, textToValueFunction);
 
     auto freq2 = std::make_unique<juce::AudioParameterFloat>("FREQ2", "Frequency2",
-        juce::NormalisableRange<float>(20.0, 5000), 3580.5,
+        juce::NormalisableRange<float>(20.0, 10000), 3580.5,
         "Hz", juce::AudioProcessorParameter::genericParameter,
         valueToTextFunction, textToValueFunction);
 
@@ -320,7 +320,7 @@ void CrumplingModelAudioProcessor::addModalParameters(juce::AudioProcessorValueT
         valueToTextFunction, textToValueFunction);
 
     auto dec2 = std::make_unique<juce::AudioParameterFloat>("DEC2", "Decay2", 
-        juce::NormalisableRange<float>(0.0, 1.0), 0.00154,
+        juce::NormalisableRange<float>(0.00001, 1.0), 0.00154,
         "", juce::AudioProcessorParameter::genericParameter,
         valueToTextFunction, textToValueFunction);
 

@@ -40,7 +40,7 @@ private:
     int nModes{ 3 };
     int nPickups{ 2 };
 
-    double ctmpOuts[2];
+    double ctmpOuts[2]; /*array that contains impact velocity and fragmentsize*/
     double tmpOuts[2 * SDT_MAX_PICKUPS]; /*array where the velocity and displacent information
                                          of the modal resonator in the two pickup points are
                                          stored*/
