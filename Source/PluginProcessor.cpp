@@ -412,7 +412,7 @@ void CrumplingModelAudioProcessor::addGainParameters(juce::AudioProcessorValueTr
         [](const juce::String& str) {return str.getFloatValue(); };
 
     auto volume = std::make_unique<juce::AudioParameterFloat>("VOL", "Volume",
-        juce::NormalisableRange< float >(-40.0f, 10.0f), 0.0f,
+        juce::NormalisableRange< float >(-40.0f, 10.0f), -20.0f,
         "dB", juce::AudioProcessorParameter::genericParameter,
         valueToTextFunction, textToValueFunction);
 
