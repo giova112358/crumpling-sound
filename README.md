@@ -3,6 +3,8 @@
 <!-- omit in toc -->
 ### A plugin realization of the crumpling model from the [Sound Design Toolkit](http://www.soundobject.org/SDT/) created with [JUCE](https://juce.com/)
 
+<img src="Documents/plugin-version1.png" width="50%">
+
 <!-- omit in toc -->
 ## Contents
 - [Introduction](#introduction)
