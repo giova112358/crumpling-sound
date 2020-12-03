@@ -8,20 +8,14 @@
 <!-- omit in toc -->
 ## Contents
 - [Introduction](#introduction)
-- [Software Architecture](#software-architecture)
 - [Crumpling Model](#crumpling-model)
     - [Description](#description)
     - [Synthesis Algorithm](#synthesis-algorithm)
 - [Crumpling Model Plugin](#impact-model-plugin)
-- [References](#references)
+    - [Software Architecture](#software-architecture)
  
 ## Introduction
-The Sound Design Toolkit consists in a library of ecologically founded (e.g physics based) sound synthesis algorithms. These algorithms have been implemented according to three main points:
-- auditory perceptual relevance;
-- cartoonification;
-- parametric temporal control;
-
-The aim of the Sound Design Toolkitis to provide models in which we can control objective parameters directly.
+The Sound Design Toolkit consists in a library of ecologically founded (e.g physics based) sound synthesis algorithms. The aim of the Sound Design Toolkitis to provide models in which we can control objective parameters directly.
 
 In this project the entire SDT library is ported in C++ and integrated in the JUCE framework for the realization of a VST3 plugin version of the crumpling model.
 
